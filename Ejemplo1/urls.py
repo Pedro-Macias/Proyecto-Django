@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from Ejemplo1.views import hola, adios, lahora
+from Ejemplo1.views import hola, adios, lahora, queEdad
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -25,4 +25,7 @@ urlpatterns = [
     path('salimos/',adios),
     # creamos la url la vista de la hora actual
     path('hora/',lahora),
+    # creamos la url la vista de la edad futura indicandole un parametro de numero entero
+    path('edad/<int:year>',queEdad),
+
 ]

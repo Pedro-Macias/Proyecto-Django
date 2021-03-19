@@ -41,3 +41,20 @@ def lahora(request):
 
     return HttpResponse(paginahora)
 
+# que edad tendremos en un año
+def queEdad(request,year):
+    
+    edadActual = 18
+    tiempo = year -2021
+    edadFutura = edadActual + tiempo
+    paginaEdad= """
+    <html>
+    <body>
+    <h2>
+    en el año  %s tendra %s años
+    </h2>
+    </body>
+    <html>
+    """ %(year,edadFutura)
+
+    return HttpResponse(paginaEdad)
