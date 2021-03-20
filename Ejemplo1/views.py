@@ -1,21 +1,23 @@
 from django.http import HttpResponse
 import datetime
-
+from django.template import Template, Context
 
 
 # primera vista
 
 def hola(request):
-    # poner algo de estilo html
-    pagina = """
-    <html>
-    <body>
-    <h1>
-    hola a todos
-    </h1>
-    </body>
-    <html>
-    """
+    
+    
+    
+    pag_externa=open('C:/Users/viaje/Desktop/pildora/Ejemplo1/Ejemplo1/plantilla/hola.html')
+    
+    plt = Template(pag_externa.read())
+    
+    pag_externa.close()
+
+    ctx = Context()
+
+    pagina = plt.render(ctx)
 
     return HttpResponse(pagina)
     #  despues se crea la url en urls 
