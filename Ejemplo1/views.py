@@ -3,11 +3,24 @@ import datetime
 from django.template import Template, Context
 
 
-# primera vista
+# utilizando clases
+class Persona(object):
+    def __init__(self, name, lastname):
+        self.name = name
+        self.lastname = lastname
+
+
+
 
 def hola(request):
+    # recuperamos de la clase creada
+    profesor= Persona ('Juan','Diaz')
+
+    # cremaos una variable
+    name ='Pedro'
+    lastname ='Macias'
     
-    
+    ahora = datetime.datetime.now()
     
     pag_externa=open('C:/Users/viaje/Desktop/pildora/Ejemplo1/Ejemplo1/plantilla/hola.html')
     
@@ -15,7 +28,9 @@ def hola(request):
     
     pag_externa.close()
 
-    ctx = Context()
+    # pasamos por el contexto la variable asignada
+    ctx = Context({'name_pax':name,'lastname_pax':lastname,'fecha':ahora,
+    'name_pro':profesor.name,'lastname_pro':profesor.lastname})
 
     pagina = plt.render(ctx)
 
