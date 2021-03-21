@@ -75,3 +75,38 @@ def queEdad(request,year):
     """ %(year,edadFutura)
 
     return HttpResponse(paginaEdad)
+
+# USAMOS LISTAS
+"""-------------------------------------------- """
+
+# Creamos una clase
+class Profesor(object):
+    def __init__(self, name, lastname):
+        self.name = name
+        self.lastname = lastname
+
+def buenas(request):
+    # recuperamos de la clase creada
+    teacher= Profesor ('Amanda','Ribeiro')
+    # funcion fecha actual
+    fecha = datetime.datetime.now() 
+    # creamos una lista
+    rasgos_teacher=['pelo','ojos','boca']
+    #  creamos lista vacia
+    vacia_teacher=[]
+
+    pag_vista=open('C:/Users/viaje/Desktop/pildora/Ejemplo1/Ejemplo1/plantilla/buenas.html')
+    
+    prof = Template(pag_vista.read())
+    
+    pag_vista.close()
+
+    # pasamos por el contexto la variable asignada
+    recuperar = Context({'fecha':fecha,
+    'name_teacher':teacher.name,'lastname_teacher':teacher.lastname,
+    'lista':['plantillas','temas','formularios'],'rasgos':rasgos_teacher, 'vacia':vacia_teacher})
+
+    datos = prof.render(recuperar)
+
+    return HttpResponse(datos)
+    #  despues se crea la url en urls 
