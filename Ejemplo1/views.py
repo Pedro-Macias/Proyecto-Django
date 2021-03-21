@@ -1,6 +1,7 @@
 from django.http import HttpResponse
 import datetime
 from django.template import Template, Context
+from django.template import loader 
 
 
 # utilizando clases
@@ -110,3 +111,34 @@ def buenas(request):
 
     return HttpResponse(datos)
     #  despues se crea la url en urls 
+
+    # USAMOS CARGADOR LOADER con el metodo GET_TEMPLATE
+"""-------------------------------------------- """
+
+# Creamos una clase
+class Chicas(object):
+    def __init__(self, name, lastname):
+        self.name = name
+        self.lastname = lastname
+
+def chicas(request):
+    # recuperamos de la clase creada
+    alumna= Chicas ('Amanda','Ribeiro')
+    # funcion fecha actual
+    fecha = datetime.datetime.now() 
+    # creamos una lista
+    chica_tipo=['pelo','ojos','boca']
+
+    # utilizamos el el cargador lodade , con el metodo get.template
+    pag_chicas = loader.get_template('chicas.html')
+
+    datos ={
+            'fecha':fecha,
+            'name_alumna':alumna.name,
+            'lastname_alumna':alumna.lastname,
+            'tipo_chica':chica_tipo
+        }
+    # cuando se renderiza se mete directamente un dicionario , directamente o definido antes
+    documento = pag_chicas.render(datos)
+    
+    return HttpResponse(documento)

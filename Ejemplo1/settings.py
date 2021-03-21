@@ -51,10 +51,11 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'Ejemplo1.urls'
 
+# VAMOS A INICAR QUE NUESTROS TEMPLATES ESTAN EN PLANTILLA
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ['C:/Users/viaje/Desktop/pildora/Ejemplo1/Ejemplo1/plantilla'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

@@ -23,15 +23,10 @@
     
     <p>
         <ul>
-        <!--utilizamos un condiconal if para ver si la lista tiene algo-->
-        {%if rasgos%}
         <!--los recorremos con un bucle for-->
             {%for rasgo in rasgos%}
                 <li>elementos de la lista rasgos: "{{rasgo}}"</li>
             {%endfor%}
-        {% else %}
-            <li>no tiene rasgos definidos</li>
-        {%endif%}    
         </ul>
     </p>
 

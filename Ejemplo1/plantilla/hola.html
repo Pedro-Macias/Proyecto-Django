@@ -8,8 +8,16 @@
 </head>
 <body>
     <h1>Hola , este es el primera plantilla Template de la pagina</h1>
+    <!-- añadir un if condicinal-->
+    {% if name_pax == 'Pedro'%}
+
+        <p>Este es mi curso</p>
+
+    {% endif%}
+
     <!--recuperar la variable enviada-->
-    <h3>mi nombre es: {{name_pax}} y mi apellido {{lastname_pax}}</h3>
+        {#    utilizando los filtros , con |      #}
+    <h3>mi nombre es: {{name_pax|upper}} y mi apellido {{lastname_pax}}</h3>
     <!--accedemos a los valores determinados de la variable enviada -->
     <h4>estamos a dia {{fecha.day}} / {{fecha.month}} / {{fecha.year}}</h4>
 
