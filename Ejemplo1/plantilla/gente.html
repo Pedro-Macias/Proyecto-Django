@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>alumnas</title>
+</head>
+<body>
+    <h1>Hola , Este es el listado de las alumnas</h1>
+    <!--recuperamos de las clases-->
+    <h3> alumna es : {{name_gente}} y su apellido {{lastname_gente}}</h3>
+    <!--accedemos a los valores determinados de la variable enviada de fecha actual -->
+    <h4>estamos a dia {{fecha.day}} / {{fecha.month}} / {{fecha.year}}</h4>
+    
+    <p><strong>recorrer toda la lista tipo_chica</strong></p>
+    
+    <p>
+        <ul>
+        <!--los recorremos con un bucle for-->
+            {%for clase in clases_gente %}
+                <li>elementos de la lista : "{{clase}}"</li>
+            {%endfor%}
+        </ul>
+    </p>
+
+    
+</html>

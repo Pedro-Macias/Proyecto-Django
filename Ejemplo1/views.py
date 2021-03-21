@@ -2,6 +2,7 @@ from django.http import HttpResponse
 import datetime
 from django.template import Template, Context
 from django.template import loader 
+from django.shortcuts import render
 
 
 # utilizando clases
@@ -142,3 +143,35 @@ def chicas(request):
     documento = pag_chicas.render(datos)
     
     return HttpResponse(documento)
+
+# USAMOS shortcut
+"""-------------------------------------------- """
+
+# Creamos una clase
+class Personal(object):
+    def __init__(self, name, lastname):
+        self.name = name
+        self.lastname = lastname
+
+def gente(request):
+    # recuperamos de la clase creada
+    gente= Personal ('Giselle','Ferreira')
+    # funcion fecha actual
+    fecha = datetime.datetime.now() 
+    # creamos una lista
+    clases_gente=['Ingles','Matematicas','Idiomas']
+
+    # utilizamos el el cargador lodade , con el metodo get.template
+    pag_gente = loader.get_template('gente.html')
+
+    # creamos un diccionario , esto es opcional , se puede poner en el returm
+    datos ={
+            'fecha':fecha,
+            'name_gente':gente.name,
+            'lastname_gente':gente.lastname,
+            'clases_gente':clases_gente,
+        }
+
+    #  cambiamos el HttpResponse por un render
+
+    return render(request,'gente.html', datos)

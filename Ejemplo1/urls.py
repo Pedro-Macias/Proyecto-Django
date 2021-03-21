@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from Ejemplo1.views import hola, adios, lahora, queEdad, buenas, chicas
+from Ejemplo1.views import hola, adios, lahora, queEdad, buenas, chicas, gente
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -30,7 +30,9 @@ urlpatterns = [
     # creamos la url la vista  buenas
     path('buenas/',buenas),
     # la url con el metdodo render
-    # creamos la url la vista  buenas
+    # creamos la url la vista chicas
     path('chicas/',chicas),
+    # creamos la url la vista  alumnas
+    path('gente/',gente),
 
 ]
