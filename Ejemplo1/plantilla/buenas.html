@@ -1,51 +1,49 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>buenas</title>
-</head>
-<body>
-    <!-- incluir barra de navegacion -->
-        {% include 'barra.html'%}
+    <!--HEREDAMOS LA PLANTILLA-->
+    {% extends "base.html" %}
+    <!-- TITULO-->
+    {% block titulo %} pagina saludo {%endblock%}
+    
 
-    <h1>Hola , Estamos pasando listas</h1>
-    <!--recuperamos de las clases-->
-    <h3> mi profesor es : {{name_teacher}} y su apellido {{lastname_teacher}}</h3>
-    <!--accedemos a los valores determinados de la variable enviada de fecha actual -->
-    <h4>estamos a dia {{fecha.day}} / {{fecha.month}} / {{fecha.year}}</h4>
-    <!-- accedemos al contenido de la lista-->
-    <p>imprime toda la lista {{lista}}</p>
-    <p>imprime el primer elemento "{{lista.0}}"</p>
-    <!-- accedemos al contenido de la lista guardada en una variable-->
-    <p>imprime toda la lista {{rasgos}}</p>
-    <p>imprime el segundo elemento "{{rasgos.1}}"</p>
-    
-    <p><strong>recorrer toda la lista rasgos</strong></p>
-    
-    <p>
-        <ul>
-        <!--los recorremos con un bucle for-->
-            {%for rasgo in rasgos%}
-                <li>elementos de la lista rasgos: "{{rasgo}}"</li>
-            {%endfor%}
-        </ul>
-    </p>
+    <!--BLOQUE CONTENIDO -->
+    {%block contenido %}
+      
 
-    <p><strong>recorrer toda la lista vacia</strong></p>
-    
-    <p>
-        <ul>
-        <!--utilizamos un condiconal if para ver si la lista tiene algo-->
-        {%if vacia%}
-        <!--los recorremos con un bucle for-->
-            {%for v in vacia%}
-                <li>elementos de la lista rasgos: "{{vacia}}"</li>
-            {%endfor%}
-        {% else %}
-            <li>esta lista no tiene datos definidos</li>
-        {%endif%}    
-        </ul>
-    </p>
-</html>
+        <h1>Hola , Estamos pasando listas</h1>
+        <!--recuperamos de las clases-->
+        <h3> mi profesor es : {{name_teacher}} y su apellido {{lastname_teacher}}</h3>
+        <!--accedemos a los valores determinados de la variable enviada de fecha actual -->
+        <h4>estamos a dia {{fecha.day}} / {{fecha.month}} / {{fecha.year}}</h4>
+        <!-- accedemos al contenido de la lista-->
+        <p>imprime toda la lista {{lista}}</p>
+        <p>imprime el primer elemento "{{lista.0}}"</p>
+        <!-- accedemos al contenido de la lista guardada en una variable-->
+        <p>imprime toda la lista {{rasgos}}</p>
+        <p>imprime el segundo elemento "{{rasgos.1}}"</p>
+        
+        <p><strong>recorrer toda la lista rasgos</strong></p>
+        
+        <p>
+            <ul>
+            <!--los recorremos con un bucle for-->
+                {%for rasgo in rasgos%}
+                    <li>elementos de la lista rasgos: "{{rasgo}}"</li>
+                {%endfor%}
+            </ul>
+        </p>
+
+        <p><strong>recorrer toda la lista vacia</strong></p>
+        
+        <p>
+            <ul>
+            <!--utilizamos un condiconal if para ver si la lista tiene algo-->
+            {%if vacia%}
+            <!--los recorremos con un bucle for-->
+                {%for v in vacia%}
+                    <li>elementos de la lista rasgos: "{{vacia}}"</li>
+                {%endfor%}
+            {% else %}
+                <li>esta lista no tiene datos definidos</li>
+            {%endif%}    
+            </ul>
+        </p>
+{% endblock%}
