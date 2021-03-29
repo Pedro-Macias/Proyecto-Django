@@ -23,4 +23,5 @@ urlpatterns = [
     # registramos la pagina de busqueda
     path('busqueda_productos/',views.busqueda_productos),
     path('buscar/',views.buscar),
+    path('contacto/',views.contacto),
 ]
